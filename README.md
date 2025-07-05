@@ -1,2 +1,12 @@
-# LifeGame
-A customizable implementation of Conway's Game of Life using Pygame. Adjust survival and birth rules (e.g., B3/S23), control simulation speed, and interactively draw initial cell patterns. A flexible sandbox for experimenting with cellular automata.
+# Life Game
+
+A simple cellular automaton based on Conway's Game of Life (using Pygame).
+
+## About
+Cellular automata are grid-based systems where each cell changes state based on its neighbors.  
+Conway's Game of Life is a famous example, with simple rules that lead to complex patterns.
+
+This version allows:
+- Custom birth/survival rules (e.g., B3/S23)
+- Adjustable simulation speed
+- Interactive grid editing (mouse)
