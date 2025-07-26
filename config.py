@@ -5,6 +5,7 @@ GRID_SIZE = (WIDTH // CELL_SIZE, HEIGHT // CELL_SIZE)
 SHOW_GRID = True
 
 FPS = 10
+UPDATE_FREQ = 120
 
 ALIVE_COLOR = (50, 205, 50)     # Lime
 DEAD_COLOR = (40, 40, 40)       # Gray
