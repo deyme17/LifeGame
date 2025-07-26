@@ -1,14 +1,23 @@
 from config import (WIDTH, HEIGHT, FPS, CELL_SIZE,
-                    BACKGROUND_COLOR, GRID_COLOR, GRID_SIZE, ALIVE_COLOR, 
+                    BACKGROUND_COLOR, GRID_COLOR, GRID_SIZE, ALIVE_COLOR, TEXT_COLOR, 
                     SURVIVE, BIRTH, UPDATE_FREQ)
 import random as rnd
 import pygame as pg
 
 pg.init()
 
+# font
+pg.font.init()
+font = pg.font.SysFont("Arial", 12)
+
 pg.display.set_caption("Life Game")
 screen = pg.display.set_mode(size=(WIDTH, HEIGHT))
 clock = pg.time.Clock()
+
+def draw_status(paused: bool) -> None:
+    status_text = "Paused" if paused else "Playing"
+    text_surface = font.render(status_text, True, TEXT_COLOR)
+    screen.blit(text_surface, (10, 10))
 
 def gen_cells(cell_num: int) -> set[tuple[int, int]]:
     poses = set()
@@ -83,8 +92,6 @@ def main() -> None:
             count = 0
             positions = adjust_grid(positions)
 
-        pg.display.set_caption("Playing" if not paused else "Paused")
-
         for event in events:
             if event.type == pg.QUIT:
                 running = False
@@ -112,6 +119,7 @@ def main() -> None:
 
         screen.fill(BACKGROUND_COLOR)
         draw_grid(positions)
+        draw_status(paused)
         pg.display.update()
 
     pg.quit()
