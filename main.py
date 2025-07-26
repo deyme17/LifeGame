@@ -108,7 +108,7 @@ def main() -> None:
                     count = 0
 
                 if event.key == pg.K_r:
-                    positions = gen_cells(rnd.randrange(2, 5) * GRID_SIZE[0])
+                    positions = gen_cells(rnd.randrange(5, 7) * GRID_SIZE[0])
 
         screen.fill(BACKGROUND_COLOR)
         draw_grid(positions)
