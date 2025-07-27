@@ -7,10 +7,10 @@ class ICellGenerator(ABC):
         self.grid_size = grid_size
 
     @abstractmethod
-    def gen_cells():
+    def gen_cells(self):
         pass
     
-    
+
 class RandomCellGenerator(ICellGenerator):
     def __init__(self, grid_size):
         super().__init__(grid_size)

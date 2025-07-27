@@ -3,6 +3,11 @@ class Grid:
         self.grid_size = grid_size
         self.survive_set = survive_set
         self.birth_set = birth_set
+        self.DIRECTIONS = [
+            (-1, -1), (-1, 0), (-1, 1),
+            ( 0, -1),          ( 0, 1),
+            ( 1, -1), ( 1, 0), ( 1, 1),
+        ]
 
     def adjust_grid(self, positions: set[tuple[int, int]]) -> set[tuple[int, int]]:
         new_positions = set()
@@ -22,15 +27,10 @@ class Grid:
         return new_positions
     
     def get_neighbors(self, position: tuple[int, int]) -> list[tuple[int, int]]:
-        DIRECTIONS = [
-            (-1, -1), (-1, 0), (-1, 1),
-            ( 0, -1),          ( 0, 1),
-            ( 1, -1), ( 1, 0), ( 1, 1),
-        ]
         neighbors = []
         x, y = position
 
-        for dx, dy in DIRECTIONS:
+        for dx, dy in self.DIRECTIONS:
             new_x, new_y = x + dx, y + dy
 
             if not (0 <= new_x < self.grid_size[0] and 0 <= new_y < self.grid_size[1]):
