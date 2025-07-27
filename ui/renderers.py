@@ -7,14 +7,15 @@ class GridRenderer:
         self.grid_size = grid_size
         self.cell_size = cell_size
 
-    def draw_grid(self, positions: set[tuple[int, int]]) -> None:
+    def draw_grid(self, positions: set[tuple[int, int]], show_grid: bool = True) -> None:
         self.surface.fill(BACKGROUND_COLOR)
         cols, rows = self.grid_size
 
-        for row in range(rows + 1):
-            pg.draw.line(surface=self.surface, color=GRID_COLOR, start_pos=(0, row * self.cell_size), end_pos=(WIDTH, row * self.cell_size))
-        for col in range(cols + 1):
-            pg.draw.line(surface=self.surface, color=GRID_COLOR, start_pos=(col * self.cell_size, 0), end_pos=(col * self.cell_size, HEIGHT))
+        if show_grid:
+            for row in range(rows + 1):
+                pg.draw.line(surface=self.surface, color=GRID_COLOR, start_pos=(0, row * self.cell_size), end_pos=(WIDTH, row * self.cell_size))
+            for col in range(cols + 1):
+                pg.draw.line(surface=self.surface, color=GRID_COLOR, start_pos=(col * self.cell_size, 0), end_pos=(col * self.cell_size, HEIGHT))
 
         for col, row in positions:
             top_left = (col * self.cell_size, row * self.cell_size)

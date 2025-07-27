@@ -14,9 +14,6 @@ class Game:
         pg.display.set_caption("Game of Life")
 
         self.positions = set()
-        if self.settings.INITIAL_STATE == 'random':
-            cell_count = int(self.settings.GRID_WIDTH * self.settings.GRID_HEIGHT * self.settings.INITIAL_FILL_PROBABILITY)
-            self.positions = self.cell_generator.gen_cells(cell_count)
 
     def start_game(self) -> None:
         running = True
@@ -53,10 +50,10 @@ class Game:
                         paused = True
                         frame_counter = 0
                     elif event.key == pg.K_r:
-                        count = rnd.randint(5, 7) * self.settings.GRID_WIDTH
+                        count = int(self.settings.GRID_WIDTH * self.settings.GRID_HEIGHT * self.settings.FILL_PROBABILITY)
                         self.positions = self.cell_generator.gen_cells(count)
 
-            self.renderer.draw_grid(self.positions)
+            self.renderer.draw_grid(self.positions, show_grid=self.settings.SHOW_GRID)
             pg.display.update()
 
         pg.quit()

@@ -16,5 +16,4 @@ BACKGROUND_COLOR = DEAD_COLOR
 # Rules
 BIRTH = {3}                # A dead cell with 3 neighbors becomes alive
 SURVIVE = {2, 3}           # A live cell with 2 or 3 neighbors survives
-INITIAL_FILL_PROBABILITY = 0.2
-INITIAL_STATE = 'random'
+FILL_PROBABILITY = 0.2

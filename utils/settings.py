@@ -8,16 +8,14 @@ class Settings:
         fps=FPS,
         birth=BIRTH,
         survive=SURVIVE,
-        initial_state=INITIAL_STATE,
-        initial_fill_probability=INITIAL_FILL_PROBABILITY,
+        fill_probability=FILL_PROBABILITY,
     ):
         self.CELL_SIZE = cell_size
         self.SHOW_GRID = show_grid
         self.FPS = fps
         self.BIRTH = birth
         self.SURVIVE = survive
-        self.INITIAL_STATE = initial_state
-        self.INITIAL_FILL_PROBABILITY = initial_fill_probability
+        self.FILL_PROBABILITY = fill_probability
 
         self.GRID_WIDTH = WIDTH // self.CELL_SIZE
         self.GRID_HEIGHT = HEIGHT // self.CELL_SIZE
