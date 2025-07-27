@@ -9,6 +9,7 @@ class Settings:
         birth=BIRTH,
         survive=SURVIVE,
         fill_probability=FILL_PROBABILITY,
+        paused=PAUSED
     ):
         self.CELL_SIZE = cell_size
         self.SHOW_GRID = show_grid
@@ -16,6 +17,7 @@ class Settings:
         self.BIRTH = birth
         self.SURVIVE = survive
         self.FILL_PROBABILITY = fill_probability
+        self.paused = paused
 
         self.GRID_WIDTH = WIDTH // self.CELL_SIZE
         self.GRID_HEIGHT = HEIGHT // self.CELL_SIZE
