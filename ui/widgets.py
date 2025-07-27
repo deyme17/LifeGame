@@ -1,4 +1,4 @@
-from config import SETTINGS_PANEL_SIZE, SETTINGS_PANEL_COLOR, WIDTH, HEIGHT
+from config import SETTINGS_PANEL_SIZE, SETTINGS_PANEL_COLOR, WIDTH, HEIGHT, TEXT_COLOR
 import pygame as pg
 import pygame_gui as gui
 
@@ -218,4 +218,4 @@ class SettingsPanel:
         surface.fill(SETTINGS_PANEL_COLOR)
         self.ui_manager.draw_ui(surface)
         self.screen.blit(surface, (WIDTH, 0))
-        pg.draw.line(self.screen, (200, 200, 200), (WIDTH, 0), (WIDTH, HEIGHT), 2)
+        pg.draw.line(self.screen, TEXT_COLOR, (WIDTH, 0), (WIDTH, HEIGHT), 2)
