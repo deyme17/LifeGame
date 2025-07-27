@@ -28,10 +28,7 @@ class Game:
 
     def update(self) -> None:
         if not self.settings.PAUSED:
-            self.frame_counter += 1
-            if self.frame_counter >= self.settings.FPS:
-                self.frame_counter = 0
-                self.positions = self.logic.adjust_grid(self.positions)
+            self.positions = self.logic.adjust_grid(self.positions)
 
     def render(self) -> None:
         self.renderer.draw_grid(self.positions, show_grid=self.settings.SHOW_GRID)
