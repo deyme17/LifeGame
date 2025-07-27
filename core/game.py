@@ -14,7 +14,6 @@ class Game:
         pg.display.set_caption("Game of Life")
 
         self.positions = set()
-        self.frame_counter = 0
 
     def start_game(self) -> None:
         running = True
@@ -57,11 +56,10 @@ class Game:
 
             elif event.type == pg.KEYDOWN:
                 if event.key == pg.K_SPACE:
-                    self.settings.PAUSED = not self.settings.PAUSED
+                    self.toggle_pause()
                 elif event.key == pg.K_c:
                     self.positions.clear()
                     self.settings.PAUSED = True
-                    self.frame_counter = 0
                 elif event.key == pg.K_r:
                     count = int(self.settings.GRID_WIDTH * self.settings.GRID_HEIGHT * self.settings.FILL_PROBABILITY)
                     self.positions = self.cell_generator.gen_cells(count)
@@ -82,3 +80,9 @@ class Game:
             if 0 <= pos[0] < self.settings.GRID_WIDTH and 0 <= pos[1] < self.settings.GRID_HEIGHT:
                 valid_positions.add(pos)
         self.positions = valid_positions
+
+    def toggle_pause(self) -> None:
+        self.settings.PAUSED = not self.settings.PAUSED
+        self.settings_panel.pause_button.set_text(f'Paused: {"Yes" if self.settings.PAUSED else "No"}')
+        self.settings_panel.draw()
+        pg.display.update()
