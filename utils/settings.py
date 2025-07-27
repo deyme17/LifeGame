@@ -6,9 +6,6 @@ class Settings:
         cell_size=CELL_SIZE,
         show_grid=SHOW_GRID,
         fps=FPS,
-        alive_color=ALIVE_COLOR,
-        dead_color=DEAD_COLOR,
-        grid_color=GRID_COLOR,
         birth=BIRTH,
         survive=SURVIVE,
         initial_state=INITIAL_STATE,
@@ -17,9 +14,6 @@ class Settings:
         self.CELL_SIZE = cell_size
         self.SHOW_GRID = show_grid
         self.FPS = fps
-        self.ALIVE_COLOR = alive_color
-        self.DEAD_COLOR = dead_color
-        self.GRID_COLOR = grid_color
         self.BIRTH = birth
         self.SURVIVE = survive
         self.INITIAL_STATE = initial_state
