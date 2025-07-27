@@ -14,7 +14,6 @@ class Game:
         pg.display.set_caption("Game of Life")
 
         self.positions = set()
-        self.paused = True
         self.frame_counter = 0
 
     def start_game(self) -> None:
@@ -28,7 +27,7 @@ class Game:
         pg.quit()
 
     def update(self) -> None:
-        if not self.paused:
+        if not self.settings.PAUSED:
             self.frame_counter += 1
             if self.frame_counter >= self.settings.FPS:
                 self.frame_counter = 0
@@ -61,10 +60,10 @@ class Game:
 
             elif event.type == pg.KEYDOWN:
                 if event.key == pg.K_SPACE:
-                    self.paused = not self.paused
+                    self.settings.PAUSED = not self.settings.PAUSED
                 elif event.key == pg.K_c:
                     self.positions.clear()
-                    self.paused = True
+                    self.settings.PAUSED = True
                     self.frame_counter = 0
                 elif event.key == pg.K_r:
                     count = int(self.settings.GRID_WIDTH * self.settings.GRID_HEIGHT * self.settings.FILL_PROBABILITY)
